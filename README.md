@@ -46,7 +46,7 @@ This project is a simulation of a differential drive robot using **ROS Noetic** 
 
 ## Running the Project
 
-### 1. Launch Gazebo with the robot
+### Launch Gazebo with the robot
 
 ```bash
 roslaunch boe_bot gazebo.launch
@@ -54,7 +54,7 @@ roslaunch boe_bot gazebo.launch
 
 ![Gazebo with robot](result/robot.png)
 
-### 2. Launch SLAM with Hector SLAM 
+### Launch SLAM with Hector SLAM 
 
 ```bash
 roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="turtlebot3_world.world"
@@ -62,7 +62,7 @@ roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="turtlebot3_world.
 
 ![SLAM](result/slam.png)
 
-### 2.1. Customize the World for Hector SLAM
+### Customize the World for Hector SLAM
 
 You can use a custom world file by modifying the `world_name` parameter. Place your custom world file (e.g., `custom_world.world`) in the `worlds/` directory of the `boe_bot_slam` package, then launch SLAM with:
 
@@ -72,14 +72,14 @@ roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="custom_world.worl
 
 Ensure the custom world file is compatible with Gazebo and properly defined in the package.
 
-### 3. Launch SLAM with Karto SLAM 
+### Launch SLAM with Karto SLAM 
 ```bash
 roslaunch boe_bot_slam boe_bot_karto_slam.launch world_name:="turtlebot3_world.world"
 ```
 
 ![SLAM](result/slam.png)
 
-### 3.1. Customize the World for Karto SLAM
+### Customize the World for Karto SLAM
 
 You can use a custom world file by modifying the `world_name` parameter. Place your custom world file (e.g., `custom_world.world`) in the `worlds/` directory of the `boe_bot_slam` package, then launch SLAM with:
 
@@ -89,19 +89,19 @@ roslaunch boe_bot_slam boe_bot_karto_slam.launch world_name:="custom_world.world
 
 Ensure the custom world file is compatible with Gazebo and properly defined in the package.
 
-### 4. Control the robot to scan the map
+### Control the robot to scan the map
 
 ```bash
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
-### 5. Save the map
+### Save the map
 
 ```bash
 rosrun map_server map_saver -f my_map
 ```
 
-### 6. Launch SLAM with a custom map 
+### Launch SLAM with a custom map 
 
 To use a custom map (e.g., `my_map.yaml`) that you have saved, launch the SLAM package with the map file:
 
@@ -111,15 +111,15 @@ roslaunch boe_bot_slam boe_bot_hector_slam.launch map_file:=$(rospack find boe_b
 
 Make sure the `my_map.yaml` and `my_map.pgm` files are placed in the `maps/` directory of the `boe_bot_slam` package.
 
-### 7. Navigation 
+### Navigation 
 
 ```bash
 roslaunch boe_bot_navigation navigation.launch
 ```
 
 ![Navigation](result/navigation.png)
-
-### 8. Human tracking 
+[Watch a demo of Navigation](https://www.youtube.com/watch?v=1PQ_PTzYc9g)
+### Human tracking 
 
 ```bash
 roslaunch boe_bot_human_tracking human_tracker.launch
