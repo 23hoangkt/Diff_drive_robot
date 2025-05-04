@@ -1,0 +1,45 @@
+<launch>
+  <!-- Đối số cho file world và map -->
+  <!-- <arg name="world_name" default="turtlebot3_world.world" /> -->
+  <arg name="world_name" default="turtlebot3_world.world" />
+  <arg name="world_path" default="$(find boe_bot_navigation)/worlds/$(arg world_name)" />
+  <arg name="map_file" default="$(find boe_bot_navigation)/maps/karto_map.yaml" />
+
+  <!-- Thời gian mô phỏng -->
+  <param name="/use_sim_time" value="true" />
+
+  <!-- Khởi chạy Gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_path)" />
+    <arg name="paused" value="false" />
+    <arg name="use_sim_time" value="true" />
+    <arg name="gui" value="true" />
+    <arg name="headless" value="false" />
+    <arg name="debug" value="false" />
+    <arg name="physics" value="ode" />
+  </include>
+
+  <!-- Tải mô hình URDF -->
+  <param name="robot_description" textfile="$(find boe_bot)/urdf/boe_bot.urdf" />
+
+  <!-- Phát TF -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+  <!-- Tạo robot trong Gazebo -->
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model"
+        args="-param robot_description -urdf -model boe_bot -x 1 -y 0.5 -z 0.1 -R 0 -P 0 -Y 0"
+        output="screen" />
+
+  <!-- Tải bản đồ -->
+  <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" />
+
+  <!-- AMCL -->
+  <include file="$(find boe_bot_navigation)/launch/amcl.launch" />
+
+  <!-- Move Base -->
+  <include file="$(find boe_bot_navigation)/launch/move_base.launch" />
+
+  <!-- RViz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find boe_bot_navigation)/rviz/navigation.rviz"/>
+</launch>

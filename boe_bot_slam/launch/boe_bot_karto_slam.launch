@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="world_name" default="turtlebot3_world.world" />
+  <arg name="world_path" default="$(find boe_bot_navigation)/worlds/$(arg world_name)" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_path)" />
+    <arg name="paused" value="false" />
+    <arg name="use_sim_time" value="true" />
+    <arg name="gui" value="true" />
+    <arg name="headless" value="false" />
+    <arg name="debug" value="false" />
+  </include>
+
+  <!-- Load URDF model -->
+  <param name="robot_description" command="$(find xacro)/xacro '$(find boe_bot)/urdf/boe_bot.urdf'" />
+
+  <!-- Publish TF of URDF -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- Joint state publisher -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+  <!-- Spawn robot in Gazebo  -->
+  <node name="spawn_model" pkg="gazebo_ros" type="spawn_model"
+      args="-param robot_description -urdf -model boe_bot -x 1 -y 0.5 -z 0.1 -R 0 -P 0 -Y 0"
+      output="screen" />
+
+  <!--SLAM Karto -->
+  <node pkg="slam_karto" type="slam_karto" name="slam_karto" output="screen">
+    <param name="odom_frame" value="odom"/>
+    <param name="map_frame" value="map"/>
+    <param name="base_frame" value="base_link"/>
+    <param name="use_scan_matching" value="true"/>
+    <param name="minimumTravelDistance" value="0.2"/>
+    <param name="minimumTravelHeading" value="0.1"/>
+    <rosparam command="load" file="$(find boe_bot_slam)/config/karto_mapper_params.yaml" />
+  </node>
+
+  <!-- RViz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find boe_bot_slam)/rviz/karto_slam.rviz"/>
+</launch>
