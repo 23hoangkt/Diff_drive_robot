@@ -1,50 +1,50 @@
 # Diff Drive Robot
 
-Đây là dự án mô phỏng robot điều khiển vi sai (differential drive robot) sử dụng **ROS Noetic** và **Gazebo**. Dự án bao gồm các gói con để mô phỏng robot trong các tình huống như điều hướng, lập bản đồ SLAM và theo dõi con người. Robot có thể được điều khiển thông qua bàn phím hoặc các lệnh ROS, hỗ trợ các tác vụ như điều hướng và lập bản đồ.
+This project is a simulation of a differential drive robot using **ROS Noetic** and **Gazebo**. It includes several sub-packages to simulate the robot in various scenarios such as navigation, SLAM mapping, and human tracking. The robot can be controlled via a keyboard or ROS commands, supporting tasks like navigation and mapping.
 
 ---
 
-## Yêu cầu
+## Requirements
 
 - Ubuntu 20.04
 - ROS Noetic
-- Python 3.8+ (yêu cầu cho `ultralytics`)
+- Python 3.8+ (required for `ultralytics`)
 
-## Cài đặt và chạy dự án
+## Installation and Setup
 
-1. Tạo và cấu hình không gian làm việc Catkin:
+1. Create and configure a Catkin workspace:
    ```bash
    mkdir -p ~/catkin_ws/src
    cd ~/catkin_ws/src
    ```
 
-2. Sao chép repository:
+2. Clone the repository:
    ```bash
    git clone https://github.com/23hoangkt/Diff_drive_robot.git
    ```
 
-3. Cài đặt các gói phụ thuộc:
+3. Install dependencies:
    ```bash
    cd ~/catkin_ws
    rosdep install --from-paths src --ignore-src -r -y
    ```
 
-4. Biên dịch không gian làm việc:
+4. Build the workspace:
    ```bash
    catkin_make
    source devel/setup.bash
    ```
 
-5. Cài đặt các gói ROS bổ sung:
+5. Install additional ROS packages:
    ```bash
    sudo apt update
    sudo apt install ros-noetic-vision-msgs ros-noetic-hector-slam ros-noetic-slam-karto
    pip3 install ultralytics
    ```
 
-## Khởi chạy dự án
+## Running the Project
 
-### 1. Khởi động Gazebo với robot (gói `boe_bot`)
+### 1. Launch Gazebo with the robot (package `boe_bot`)
 
 ```bash
 roslaunch boe_bot gazebo.launch
@@ -52,7 +52,7 @@ roslaunch boe_bot gazebo.launch
 
 ![Gazebo with robot](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/robot.png)
 
-### 2. Khởi động SLAM với Hector SLAM (gói `boe_bot_slam`)
+### 2. Launch SLAM with Hector SLAM (package `boe_bot_slam`)
 
 ```bash
 roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="turtlebot3_world.world"
@@ -60,19 +60,57 @@ roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="turtlebot3_world.
 
 ![SLAM](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/slam.png)
 
-### 3. Điều khiển robot để quét bản đồ
+### 2.1. Customize the World for Hector SLAM
+
+You can use a custom world file by modifying the `world_name` parameter. Place your custom world file (e.g., `custom_world.world`) in the `worlds/` directory of the `boe_bot_slam` package, then launch SLAM with:
+
+```bash
+roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="custom_world.world"
+```
+
+Ensure the custom world file is compatible with Gazebo and properly defined in the package.
+
+### 3. Launch SLAM with Karto SLAM (package `boe_bot_slam`)
+
+```bash
+roslaunch boe_bot_slam boe_bot_karto_slam.launch world_name:="turtlebot3_world.world"
+```
+
+![SLAM](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/slam.png)
+
+### 3.1. Customize the World for Karto SLAM
+
+You can use a custom world file by modifying the `world_name` parameter. Place your custom world file (e.g., `custom_world.world`) in the `worlds/` directory of the `boe_bot_slam` package, then launch SLAM with:
+
+```bash
+roslaunch boe_bot_slam boe_bot_karto_slam.launch world_name:="custom_world.world"
+```
+
+Ensure the custom world file is compatible with Gazebo and properly defined in the package.
+
+### 4. Control the robot to scan the map
 
 ```bash
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
-### 4. Lưu bản đồ
+### 5. Save the map
 
 ```bash
 rosrun map_server map_saver -f my_map
 ```
 
-### 5. Điều hướng (gói `boe_bot_navigation`)
+### 6. Launch SLAM with a custom map (package `boe_bot_slam`)
+
+To use a custom map (e.g., `my_map.yaml`) that you have saved, launch the SLAM package with the map file:
+
+```bash
+roslaunch boe_bot_slam boe_bot_hector_slam.launch map_file:=$(rospack find boe_bot_slam)/maps/my_map.yaml
+```
+
+Make sure the `my_map.yaml` and `my_map.pgm` files are placed in the `maps/` directory of the `boe_bot_slam` package.
+
+### 7. Navigation (package `boe_bot_navigation`)
 
 ```bash
 roslaunch boe_bot_navigation navigation.launch
@@ -80,42 +118,27 @@ roslaunch boe_bot_navigation navigation.launch
 
 ![Navigation](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/navigation.png)
 
-### 6. Theo dõi con người (gói `boe_bot_human_tracking`)
+### 8. Human tracking (package `boe_bot_human_tracking`)
 
 ```bash
 roslaunch boe_bot_human_tracking human_tracker.launch
 ```
 
-![Human tracking](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/human_follow.png)
+![Human tracking](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/huma_follow.png)
 
-## Cấu trúc thư mục
+## License
 
-- `boe_bot/`: Mô phỏng robot trong Gazebo.
-- `boe_bot_slam/`: Gói cho SLAM (Hector SLAM, Karto SLAM).
-- `boe_bot_navigation/`: Gói cho điều hướng.
-- `boe_bot_human_tracking/`: Gói cho theo dõi con người.
-- `result/`: Chứa ảnh minh họa cho README.
+This project is licensed under the **MIT License**.  
+See the [LICENSE](LICENSE) file for more details.
 
-## Giấy phép
+## Contributing
 
-Dự án này sử dụng giấy phép **MIT**.  
-Xem file [LICENSE](LICENSE) để biết thêm chi tiết.
+Contributions are welcome! You can:
 
-## Đóng góp
+- Submit a pull request
+- Report issues
+- Improve documentation or add new features
 
-Mọi đóng góp đều được hoan nghênh! Bạn có thể:
+## Contact
 
-- Tạo pull request
-- Báo lỗi (issues)
-- Cải tiến tài liệu hoặc tính năng mới
-
-## Liên hệ
-
-Nếu bạn có câu hỏi, vui lòng liên hệ qua GitHub hoặc email trong phần thông tin tài khoản.
-
-## Lưu ý
-
-Nếu ảnh không hiển thị, kiểm tra:
-
-- Đảm bảo bạn đang xem branch đúng (`master` hoặc branch mặc định).
-- Làm mới trang hoặc thử mở trong chế độ ẩn danh.
+If you have any questions, feel free to reach out via GitHub or the email provided in the account information.
