@@ -37,10 +37,13 @@ Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot tro
     source devel/setup.bash
     ```
 
-5. Cài đặt các gói ROS bổ sung (nếu cần):
+5. Cài đặt các gói ROS bổ sung :
     ```bash
-    sudo apt-get install ros-noetic-gazebo-ros ros-noetic-teleop-twist-keyboard \
-    ros-noetic-rviz ros-noetic-slam-gmapping ros-noetic-move-base ros-noetic-hector-slam
+    sudo apt update
+    sudo apt install ros-noetic-vision-msgs\
+    pip3 install ultralytics\
+    sudo apt install ros-noetic-hector-slam\
+    sudo apt install ros-noetic-slam-karto\
     ```
 
 ---
