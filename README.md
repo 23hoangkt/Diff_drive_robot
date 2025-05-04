@@ -76,15 +76,11 @@ Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot tro
     rosrun teleop_twist_keyboard teleop_twist_keyboard.py
     ```
 
-    ![Robot scanning](path_to_robot_image)  <!-- Thêm ảnh robot di chuyển và bản đồ được cập nhật tại đây -->
-
  Lưu bản đồ:
     ```bash
     rosrun map_server map_saver -f my_map
     ```
-
-    ![Saved map](path_to_saved_map_image)  <!-- Thêm ảnh chụp màn hình file bản đồ đã lưu tại đây -->
-
+    
  Điều hướng (gói `boe_bot_navigation`):
     ```bash
     roslaunch boe_bot_navigation navigation.launch
