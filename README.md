@@ -50,56 +50,49 @@ Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot tro
 
 ## Khởi chạy dự án
 
-1. Khởi động Gazebo với robot (gói `boe_bot`):
+ Khởi động Gazebo với robot (gói `boe_bot`):
     ```bash
     roslaunch boe_bot gazebo.launch
     ```
 
     ![Gazebo with robot](path_to_gazebo_image)  <!-- Thêm ảnh chụp màn hình Gazebo tại đây -->
 
-2. Khởi động RViz để trực quan hóa:
-    ```bash
-    roslaunch boe_bot rviz.launch
-    ```
-
-    ![RViz visualization](path_to_rviz_image)  <!-- Thêm ảnh chụp màn hình RViz tại đây -->
-
-3. Khởi động SLAM với Hector SLAM (gói `boe_bot_slam`):
+ Khởi động SLAM với Hector SLAM (gói `boe_bot_slam`):
     ```bash
     roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="turtlebot3_world.world"
     ```
 
     ![Gazebo with world](path_to_world_image)  <!-- Thêm ảnh chụp màn hình Gazebo với turtlebot3_world tại đây -->
 
-4. Khởi động RViz để xem bản đồ đang tạo (gói `boe_bot_slam`):
+ Khởi động RViz để xem bản đồ đang tạo (gói `boe_bot_slam`):
     ```bash
     roslaunch boe_bot_slam rviz.launch
     ```
 
     ![RViz map](path_to_map_image)  <!-- Thêm ảnh chụp màn hình RViz hiển thị bản đồ tại đây -->
 
-5. Điều khiển robot để quét bản đồ:
+ Điều khiển robot để quét bản đồ:
     ```bash
     rosrun teleop_twist_keyboard teleop_twist_keyboard.py
     ```
 
     ![Robot scanning](path_to_robot_image)  <!-- Thêm ảnh robot di chuyển và bản đồ được cập nhật tại đây -->
 
-6. Lưu bản đồ:
+ Lưu bản đồ:
     ```bash
     rosrun map_server map_saver -f my_map
     ```
 
     ![Saved map](path_to_saved_map_image)  <!-- Thêm ảnh chụp màn hình file bản đồ đã lưu tại đây -->
 
-7. Điều hướng (gói `boe_bot_navigation`):
+ Điều hướng (gói `boe_bot_navigation`):
     ```bash
     roslaunch boe_bot_navigation navigation.launch
     ```
 
     ![Navigation](path_to_navigation_image)  <!-- Thêm ảnh chụp màn hình điều hướng tại đây -->
 
-8. Theo dõi con người (gói `boe_bot_human_tracking`):
+ Theo dõi con người (gói `boe_bot_human_tracking`):
     ```bash
     roslaunch boe_bot_human_tracking human_tracker.launch
     ```
