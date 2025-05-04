@@ -46,7 +46,7 @@ This project is a simulation of a differential drive robot using **ROS Noetic** 
 
 ## Running the Project
 
-### 1. Launch Gazebo with the robot (package `boe_bot`)
+### 1. Launch Gazebo with the robot
 
 ```bash
 roslaunch boe_bot gazebo.launch
@@ -54,7 +54,7 @@ roslaunch boe_bot gazebo.launch
 
 ![Gazebo with robot](result/robot.png)
 
-### 2. Launch SLAM with Hector SLAM (package `boe_bot_slam`)
+### 2. Launch SLAM with Hector SLAM 
 
 ```bash
 roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="turtlebot3_world.world"
@@ -72,8 +72,7 @@ roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="custom_world.worl
 
 Ensure the custom world file is compatible with Gazebo and properly defined in the package.
 
-### 3. Launch SLAM with Karto SLAM (package `boe_bot_slam`)
-
+### 3. Launch SLAM with Karto SLAM 
 ```bash
 roslaunch boe_bot_slam boe_bot_karto_slam.launch world_name:="turtlebot3_world.world"
 ```
@@ -102,7 +101,7 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 rosrun map_server map_saver -f my_map
 ```
 
-### 6. Launch SLAM with a custom map (package `boe_bot_slam`)
+### 6. Launch SLAM with a custom map 
 
 To use a custom map (e.g., `my_map.yaml`) that you have saved, launch the SLAM package with the map file:
 
@@ -112,7 +111,7 @@ roslaunch boe_bot_slam boe_bot_hector_slam.launch map_file:=$(rospack find boe_b
 
 Make sure the `my_map.yaml` and `my_map.pgm` files are placed in the `maps/` directory of the `boe_bot_slam` package.
 
-### 7. Navigation (package `boe_bot_navigation`)
+### 7. Navigation 
 
 ```bash
 roslaunch boe_bot_navigation navigation.launch
@@ -120,14 +119,14 @@ roslaunch boe_bot_navigation navigation.launch
 
 ![Navigation](result/navigation.png)
 
-### 8. Human tracking (package `boe_bot_human_tracking`)
+### 8. Human tracking 
 
 ```bash
 roslaunch boe_bot_human_tracking human_tracker.launch
 ```
 
 ![Human tracking](result/huma_follow.png)
-
+[Watch a demo of Human Tracking](https://www.youtube.com/watch?v=Mz6MIqqkxY4)
 ## License
 
 This project is licensed under the **MIT License**.  
