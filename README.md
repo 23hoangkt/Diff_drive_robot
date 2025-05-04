@@ -52,7 +52,7 @@
     ```bash
     roslaunch boe_bot gazebo.launch
     ```
-    ![Gazebo with robot](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/robot.png)
+    ![Gazebo with robot](image/robot.png)
 
 ### 2. Khởi động SLAM với Hector SLAM (gói `boe_bot_slam`):
     ```bash
