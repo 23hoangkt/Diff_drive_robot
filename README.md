@@ -55,14 +55,14 @@ Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot tro
     roslaunch boe_bot gazebo.launch
     ```
 
-    ![Gazebo with robot]((result/robot.png) 
+    ![Gazebo with robot](result/robot.png) 
 
 ## Khởi động SLAM với Hector SLAM (gói `boe_bot_slam`):
     ```bash
     roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="turtlebot3_world.world"
     ```
 
-    ![Gazebo with world]((result/slam.png)  
+    ![Gazebo with world](result/slam.png)  
     
 
 ## Điều khiển robot để quét bản đồ:
@@ -80,14 +80,14 @@ Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot tro
     roslaunch boe_bot_navigation navigation.launch
     ```
 
-    ![Navigation]((result/naviagtion.png)  
+    ![Navigation](result/navgation.png)  
 
 ## Theo dõi con người (gói `boe_bot_human_tracking`):
     ```bash
     roslaunch boe_bot_human_tracking human_tracker.launch
     ```
 
-    ![Human tracking]((result/human_follow.png)  
+    ![Human tracking](result/human_follow.png)  
 
 ---
 
