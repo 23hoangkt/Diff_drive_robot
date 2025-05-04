@@ -50,14 +50,14 @@ Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot tro
 
 ## Khởi chạy dự án
 
- Khởi động Gazebo với robot (gói `boe_bot`):
+## Khởi động Gazebo với robot (gói `boe_bot`):
     ```bash
     roslaunch boe_bot gazebo.launch
     ```
 
     ![Gazebo with robot]((result/robot.png) 
 
- Khởi động SLAM với Hector SLAM (gói `boe_bot_slam`):
+## Khởi động SLAM với Hector SLAM (gói `boe_bot_slam`):
     ```bash
     roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="turtlebot3_world.world"
     ```
@@ -65,24 +65,24 @@ Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot tro
     ![Gazebo with world]((result/slam.png)  
     
 
- Điều khiển robot để quét bản đồ:
+## Điều khiển robot để quét bản đồ:
     ```bash
     rosrun teleop_twist_keyboard teleop_twist_keyboard.py
     ```
 
- Lưu bản đồ:
+## Lưu bản đồ:
     ```bash
     rosrun map_server map_saver -f my_map
     ```
     
- Điều hướng (gói `boe_bot_navigation`):
+## Điều hướng (gói `boe_bot_navigation`):
     ```bash
     roslaunch boe_bot_navigation navigation.launch
     ```
 
     ![Navigation]((result/naviagtion.png)  
 
- Theo dõi con người (gói `boe_bot_human_tracking`):
+## Theo dõi con người (gói `boe_bot_human_tracking`):
     ```bash
     roslaunch boe_bot_human_tracking human_tracker.launch
     ```
