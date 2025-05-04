@@ -111,3 +111,10 @@ Mọi đóng góp đều được hoan nghênh! Bạn có thể:
 ## Liên hệ
 
 Nếu bạn có câu hỏi, vui lòng liên hệ qua GitHub hoặc email trong phần thông tin tài khoản.
+
+---
+
+**Lưu ý**: Nếu ảnh không hiển thị, vui lòng kiểm tra:
+- Đảm bảo các file ảnh (`robot.png`, `slam.png`, `navigation.png`, `human_follow.png`) trong thư mục `result/` đã được commit và push lên GitHub.
+- Xác nhận đường dẫn ảnh trong README khớp với vị trí thực tế trên repository.
+- Xóa file `README-` thừa (nếu có) bằng lệnh: `rm README-`, sau đó commit và push lại.
