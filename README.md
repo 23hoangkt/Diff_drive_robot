@@ -125,7 +125,7 @@ roslaunch boe_bot_navigation navigation.launch
 roslaunch boe_bot_human_tracking human_tracker.launch
 ```
 
-![Human tracking](result/huma_follow.png)
+![Human tracking](result/human_follow.png)
 [Watch a demo of Human Tracking](https://www.youtube.com/watch?v=Mz6MIqqkxY4)
 ## License
 
