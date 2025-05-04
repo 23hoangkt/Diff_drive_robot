@@ -1,4 +1,4 @@
-image: /home/hoangkt/catkin_ws/src/boe_robot/boe_bot_navigation/maps/turtle_map_house.pgm
+image: turtle_map_house.pgm
 resolution: 0.050000
 origin: [-9.797855, -9.009630, 0.000000]
 negate: 0
