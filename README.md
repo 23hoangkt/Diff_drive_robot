@@ -10,8 +10,7 @@ Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot tro
 ### 1. Yêu cầu phiên bản
 
 - Ubuntu 20.04
-- ROS Noetic Ninjemys
-- Gazebo 11
+- ROS Noetic
 
 ---
 
