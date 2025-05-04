@@ -1,4 +1,4 @@
-  # Diff Drive Robot
+# Diff Drive Robot
 
 Đây là một dự án mô phỏng robot điều khiển vi sai (differential drive robot) sử dụng **ROS Noetic** và **Gazebo**.  
 Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot trong các tình huống khác nhau như điều hướng, lập bản đồ SLAM và theo dõi con người. Robot có thể được điều khiển thông qua bàn phím hoặc các lệnh ROS, hỗ trợ các tác vụ như điều hướng và lập bản đồ.
@@ -72,10 +72,10 @@ Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot tro
 
 ## Lưu bản đồ:
     ```bash
-    rosrun map_server map_saver -f my_map
+    rosrun map_server map_saver -f Raad
     ```
     
-## Điều hướng (gói `boe_bot_navigation`):
+## Điều hướng (gói ` Portuguesa`):
     ```bash
     roslaunch boe_bot_navigation navigation.launch
     ```
