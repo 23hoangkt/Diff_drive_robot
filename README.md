@@ -52,13 +52,13 @@
     ```bash
     roslaunch boe_bot gazebo.launch
     ```
-![Gazebo with robot](image/robot.png)
+![Gazebo with robot](result/robot.png)
 
 ### 2. Khởi động SLAM với Hector SLAM (gói `boe_bot_slam`):
     ```bash
     roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="turtlebot3_world.world"
     ```
-![SLAM](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/slam.png)
+![SLAM](result/slam.png)
 
 ### 3. Điều khiển robot để quét bản đồ:
     ```bash
@@ -74,23 +74,13 @@
     ```bash
     roslaunch boe_bot_navigation navigation.launch
     ```
-![Navigation](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/navigation.png)
+![Navigation](result/navigation.png)
 
 ### 6. Theo dõi con người (gói `boe_bot_human_tracking`):
     ```bash
     roslaunch boe_bot_human_tracking human_tracker.launch
     ```
-![Human tracking](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/human_follow.png)
-
----
-
-## Cấu trúc thư mục
-
-- `boe_bot/`: Mô phỏng robot trong Gazebo.
-- `boe_bot_slam/`: Gói cho SLAM (Hector SLAM, Karto SLAM).
-- `boe_bot_navigation/`: Gói cho điều hướng.
-- `boe_bot_human_tracking/`: Gói cho theo dõi con người.
-- `result/`: Chứa ảnh minh họa cho README.
+![Human tracking](result/huma_follow.png)
 
 ---
 
