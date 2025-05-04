@@ -40,10 +40,10 @@ Dự án bao gồm nhiều gói con (*sub-packages*) để mô phỏng robot tro
 5. Cài đặt các gói ROS bổ sung :
     ```bash
     sudo apt update
-    sudo apt install ros-noetic-vision-msgs\
-    pip3 install ultralytics\
-    sudo apt install ros-noetic-hector-slam\
-    sudo apt install ros-noetic-slam-karto\
+    sudo apt install ros-noetic-vision-msgs
+    pip3 install ultralytics
+    sudo apt install ros-noetic-hector-slam
+    sudo apt install ros-noetic-slam-karto
     ```
 
 ---
