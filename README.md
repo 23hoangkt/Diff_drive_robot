@@ -38,8 +38,10 @@ This project is a simulation of a differential drive robot using **ROS Noetic** 
 5. Install additional ROS packages:
    ```bash
    sudo apt update
-   sudo apt install ros-noetic-vision-msgs ros-noetic-hector-slam ros-noetic-slam-karto
+   sudo apt install ros-noetic-vision-msgs
    pip3 install ultralytics
+   sudo apt install ros-noetic-hector-slam
+   sudo apt install ros-noetic-slam-karto
    ```
 
 ## Running the Project
@@ -50,7 +52,7 @@ This project is a simulation of a differential drive robot using **ROS Noetic** 
 roslaunch boe_bot gazebo.launch
 ```
 
-![Gazebo with robot](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/robot.png)
+![Gazebo with robot](result/robot.png)
 
 ### 2. Launch SLAM with Hector SLAM (package `boe_bot_slam`)
 
@@ -58,7 +60,7 @@ roslaunch boe_bot gazebo.launch
 roslaunch boe_bot_slam boe_bot_hector_slam.launch world_name:="turtlebot3_world.world"
 ```
 
-![SLAM](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/slam.png)
+![SLAM](result/slam.png)
 
 ### 2.1. Customize the World for Hector SLAM
 
@@ -76,7 +78,7 @@ Ensure the custom world file is compatible with Gazebo and properly defined in t
 roslaunch boe_bot_slam boe_bot_karto_slam.launch world_name:="turtlebot3_world.world"
 ```
 
-![SLAM](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/slam.png)
+![SLAM](result/slam.png)
 
 ### 3.1. Customize the World for Karto SLAM
 
@@ -116,7 +118,7 @@ Make sure the `my_map.yaml` and `my_map.pgm` files are placed in the `maps/` dir
 roslaunch boe_bot_navigation navigation.launch
 ```
 
-![Navigation](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/navigation.png)
+![Navigation](result/navigation.png)
 
 ### 8. Human tracking (package `boe_bot_human_tracking`)
 
@@ -124,7 +126,7 @@ roslaunch boe_bot_navigation navigation.launch
 roslaunch boe_bot_human_tracking human_tracker.launch
 ```
 
-![Human tracking](https://raw.githubusercontent.com/23hoangkt/Diff_drive_robot/main/result/huma_follow.png)
+![Human tracking](result/huma_follow.png)
 
 ## License
 
