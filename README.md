@@ -127,19 +127,4 @@ roslaunch boe_bot_human_tracking human_tracker.launch
 
 ![Human tracking](result/human_follow.png)
 [Watch a demo of Human Tracking](https://www.youtube.com/watch?v=Mz6MIqqkxY4)
-## License
 
-This project is licensed under the **MIT License**.  
-See the [LICENSE](LICENSE) file for more details.
-
-## Contributing
-
-Contributions are welcome! You can:
-
-- Submit a pull request
-- Report issues
-- Improve documentation or add new features
-
-## Contact
-
-If you have any questions, feel free to reach out via GitHub or the email provided in the account information.
